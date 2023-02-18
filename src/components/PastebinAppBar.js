@@ -5,26 +5,30 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import AdbIcon from '@mui/icons-material/Adb';
+import { lightBlue } from '@mui/material/colors';
 
 export default function PastebinAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar  color='default' position="static">
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
+            href="/"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <AdbIcon />
+            <Typography variant="h6" component="div" >
             Pastebin
-          </Typography>
-          <Button color="inherit">Login</Button>
+            </Typography>
+          </IconButton>
+          
+          <Button color="inherit" href="/">Home</Button>
+          <Button color="inherit" href="/page">Pasted</Button>
         </Toolbar>
       </AppBar>
     </Box>
