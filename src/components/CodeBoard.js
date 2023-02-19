@@ -13,12 +13,22 @@ export default class CodeBoard extends React.Component{
     constructor(props){
         super(props);
     }
+    languageMap ={
+        "java":"JAVA",
+        "python":"Python",
+        "cpp":"C++",
+        "javascript":"Javascript",
+        "c":"C",
+        "markdown":"Markdown",
+        "shell":"SHELL"
 
+    }
     componentDidMount(){
         
         axios.get('/api/paste/' + this.props.token)
         .then((response) => {
-            this.setState(response.data)
+            this.setState(response.data);
+            // console.log(response.data.language)
         })
         .catch(function (error) {
             // handle error
@@ -31,11 +41,11 @@ export default class CodeBoard extends React.Component{
 
     render(){
         return (
-            <Card sx={{ width: "80%"}}>
+            <Card sx={{ width: "100%"}}>
                 <CardContent >
                     <Typography variant="h4" component="div">{this.state.token}</Typography>
-                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>{this.state.poster} / {this.state.language}/ {this.state.paste_time}</Typography>
-                    <SyntaxHighlighter style={docco} language="python" showLineNumbers lineNumberStyle={{color: '#ddd', fontSize: 20}}>{this.state.content}</SyntaxHighlighter>
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>{this.state.poster} / {this.languageMap[this.state.language]}/ {this.state.paste_time}</Typography>
+                    <SyntaxHighlighter style={docco} language={this.state.language} showLineNumbers lineNumberStyle={{color: '#ddd', fontSize: 20}}>{this.state.content}</SyntaxHighlighter>
                 </CardContent>
                 <CardActions>
                     <Button size="small"  variant="contained" color='inherit'>copy</Button>

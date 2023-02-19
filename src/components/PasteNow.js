@@ -36,36 +36,50 @@ export default function PasteNow() {
     return (
         <Card sx={{ width: "80%", ml: "10vw", mt: "20px" }}>
             <CardContent>
-                <Grid container spacing={2}>
+                <Grid container spacing={5} >
                     <Grid item >
                         <div>
                             <InputLabel >Author</InputLabel>
                             <TextField id="poster" label="Author" onChange={(e) => { setPoster(e.target.value) }} />
                         </div>
                     </Grid>
-                    <Grid item >
-                        <div>
-                            <InputLabel >Language</InputLabel>
-                            <TextField label="Language" onChange={(e) => { setLanguage(e.target.value) }} />
-                        </div>
+                    <Grid item xs={2}>
+                        
+                    <InputLabel >Language</InputLabel>
+                        <Select
+                            sx={{width:"100%"}}
+                            
+                            label="Language"
+                            onChange={(e) => { setLanguage(e.target.value) }}
+                        >
+                            <MenuItem value='javascript'>Javascript</MenuItem>
+                            <MenuItem value='java'>JAVA</MenuItem>
+                            <MenuItem value='python'>Python</MenuItem>
+                            <MenuItem value='cpp'>C++</MenuItem>
+                            <MenuItem value='c'>C</MenuItem>
+                            <MenuItem value='markdown'>Markdown</MenuItem>
+                            <MenuItem value='shell'>SHELL</MenuItem>
+                        </Select>
+                        
                     </Grid>
+                    
                     <Grid item >
                         <div>
                             <InputLabel >Life Time</InputLabel>
                             <TextField label="Life time" onChange={(e) => { setLifetime(e.target.value) }} />
                         </div>
                     </Grid>
-                    <Grid item >
+                    <Grid item xs={2}>
                         
                         <InputLabel >Privacy</InputLabel>
                         <Select
-                            sx={{width:"200%"}}
+                            sx={{width:"100%"}}
                             
                             label="Privacy"
                             onChange={(e) => { setSecret(e.target.value) }}
                         >
-                            <MenuItem value={true}>public</MenuItem>
-                            <MenuItem value={false}>private</MenuItem>
+                            <MenuItem value={true}>Public</MenuItem>
+                            <MenuItem value={false}>Private</MenuItem>
                         </Select>
                        
                     </Grid>
@@ -73,8 +87,8 @@ export default function PasteNow() {
 
                 </Grid>
 
-                <Grid container>
-                    <Grid item xs={12}>
+                <Grid container >
+                    <Grid item xs={12} >
                         <div>
                             <InputLabel >Content</InputLabel>
                             <TextField
